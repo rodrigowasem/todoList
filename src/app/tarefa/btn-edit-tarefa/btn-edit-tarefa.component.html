@@ -1,0 +1,46 @@
+<button class="btn btn-primary mr-2" (click)="openTarefaFormModal(tarefaModalEditTemplate)">Editar</button>
+
+<ng-template #tarefaModalEditTemplate>
+    <form [formGroup]="tarefaForm" (ngSubmit)="editTarefa()">
+
+        <div class="modal-header">
+            <h4 class="modal-title pull-left">Editar Tarefa</h4>
+            <button type="button" class="close pull-right" aria-label="Fechar" (click)="closeTarefaFormModal()">
+            </button>
+        </div>
+
+        <div class="modal-body">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="titulo">Título</label>
+                            <input type="text" formControlName="titulo" class="form-control" [(ngModel)]="titulo" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="descricao">Descricao</label>
+                            <textarea formControlName="descricao" rows="3" class="form-control"
+                                [(ngModel)]="descricao"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="submit">
+                Salvar
+            </button>
+            <button class="btn btn-primary" (click)="closeTarefaFormModal()">
+                Cancelar
+            </button>
+        </div>
+
+    </form>
+</ng-template>

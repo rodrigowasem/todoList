@@ -1,0 +1,44 @@
+<button class="btn btn-primary float-right" (click)="openTarefaFormModal(tarefaModalCreateTemplate)">Nova
+    Tarefa</button>
+
+<ng-template #tarefaModalCreateTemplate>
+    <form [formGroup]="tarefaForm" (ngSubmit)="createTarefa()">
+
+        <div class="modal-header">
+            <h4 class="modal-title pull-left">Nova Tarefa</h4>
+        </div>
+
+        <div class="modal-body">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="titulo">Título</label>
+                            <input type="text" formControlName="titulo" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="descricao">Descricao</label>
+                            <textarea formControlName="descricao" rows="3" class="form-control"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="submit">
+                Agendar
+            </button>
+            <button class="btn btn-primary" (click)="closeTarefaFormModal()">
+                Cancelar
+            </button>
+        </div>
+
+    </form>
+</ng-template>

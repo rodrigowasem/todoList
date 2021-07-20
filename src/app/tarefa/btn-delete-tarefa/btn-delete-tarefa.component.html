@@ -1,0 +1,27 @@
+<button class="btn btn-light btn-xs mr-2" (click)="openTarefaFormModal(tarefaModalDeleteTemplate)">
+    Deletar
+</button>
+
+<ng-template #tarefaModalDeleteTemplate>
+    <form [formGroup]="tarefaForm" (ngSubmit)="deleteTarefa()">
+        <div class="modal-header">
+            <h4 class="modal-title pull-left">Deletar Tarefa</h4>
+            <button type="button" class="close pull-right" aria-label="Fechar" (click)="closeModalCardForm()">
+            </button>
+        </div>
+
+        <div class="modal-body">
+            <div class="container">
+                <h5 class="text-center text-danger">Tem certeza que deseja excluir a tarefa ?</h5>
+            </div>
+        </div>
+
+        <div class="modal-footer">
+            <div class="container text-center">
+                <button class="btn btn-info" type="submit">Sim
+                </button>
+                <button type="button" class="btn btn-default ml-2" (click)="closeModalCardForm();">Cancelar</button>
+            </div>
+        </div>
+    </form>
+</ng-template>

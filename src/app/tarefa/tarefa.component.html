@@ -1,0 +1,20 @@
+<app-btn-create-tarefa (tarefaCreated)="onTarefaCreated($event)"></app-btn-create-tarefa>
+<table class="table mt-5">
+    <thead>
+        <tr>
+            <th>Título</th>
+            <th>Concluída</th>
+            <th>Administrar</th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let tarefa of tarefas">
+        <tr>
+            <td>{{tarefa.titulo}}</td>
+            <td> <input type="checkbox" [checked]="tarefa.titulo === 'true'" value="tarefa.concluida"
+                    (change)="onCheckedConcluida(tarefa.id)" />
+            </td>
+            <app-btn-edit-tarefa [tarefa]="tarefa" (tarefaEdit)="onTarefaEdit($event)"></app-btn-edit-tarefa>
+            <app-btn-delete-tarefa [tarefa]="tarefa" (tarefaDelete)="onTarefaDelete($event)"></app-btn-delete-tarefa>
+        </tr>
+    </tbody>
+</table>
